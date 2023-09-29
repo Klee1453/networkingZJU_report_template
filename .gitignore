@@ -1,0 +1,10 @@
+/*
+/*.*
+
+!README.md
+!.gitignore
+!/section/
+!/image/
+
+/section/*
+!/section/*.tex
