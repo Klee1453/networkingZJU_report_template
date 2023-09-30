@@ -1,0 +1,133 @@
+% !TEX root = ./main.tex
+\documentclass[UTF8]{ctexart}                       % 中文文档
+\usepackage{fontspec}                               % 字体处理
+\usepackage{listings}                               % 代码片段插入
+\usepackage{graphicx}                               % 图片处理
+\usepackage{caption}                                % 标题处理，可以用这个宏包的caption*命令实现图片无编号插入
+\usepackage{xcolor}                                 % 颜色处理
+\usepackage[colorlinks,linkcolor=violet]{hyperref}  % 超链接插入
+\usepackage{array}                                  % 提供额外的列类型选项
+% \definecolor{mGreen}{rgb}{0,0.6,0}
+% \definecolor{mGray}{rgb}{0.5,0.5,0.5}
+% \definecolor{mPurple}{rgb}{0.58,0,0.82}
+% \definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+% \newfontfamily\cc{CASCADIACODE.TTF}                 % 选择CascadiaCode作为代码片段的字体
+% \lstdefinestyle{CppStyle}{
+%     backgroundcolor=\color{backgroundColour}, 
+%     commentstyle=\color{mGreen},
+%     keywordstyle=\color{magenta},
+%     numberstyle=\tiny\color{mGray},
+%     stringstyle=\color{mPurple},
+%     basicstyle=\small\cc,
+%     escapeinside={\%*}{*)},                         % 用%*和*)在代码片段中插入LaTeX语法
+%     breakatwhitespace=false,         
+%     breaklines=true,                 
+%     captionpos=b,                    
+%     keepspaces=true,                 
+%     numbers=left,                                   % 在代码片段左侧显示行数                 
+%     numbersep=5pt,                  
+%     showspaces=false,                
+%     showstringspaces=false,
+%     showtabs=false,                  
+%     tabsize=2,
+%     language=C++
+% }
+
+\newcommand{\courseName}{计算机网络基础}
+\newcommand{\courseTeacher}{张三浦}
+\newcommand{\myName}{李田所}
+\newcommand{\myFacultad}{计算机科学与技术学院}
+\newcommand{\myMajor}{信息安全}
+\newcommand{\myStudentID}{3210114514}
+\newcommand{\coworkerName}{}
+\newcommand{\labType}{操作实验}
+\newcommand{\labLocation}{计算机网络实验室}
+\newcommand{\labName}{WireShark软件初探和常见网络命令的使用}
+
+% 设置章节标题左对齐
+\CTEXsetup[format={\Large\bfseries}]{section}
+
+\begin{document}
+
+\begin{titlepage}
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.66\textwidth]{../image/logo.png}
+    \end{figure}
+
+    \begin{center}
+        \huge{\textbf{本科实验报告\\}}
+    \end{center}
+
+    \vfill
+    \begin{center}
+        \Large  % \Large 每个汉字约等于0.5cm
+        \renewcommand{\arraystretch}{1.25}
+        \begin{tabular}{>{\raggedright}p{3cm}p{8cm}}
+            \multicolumn{1}{c}{课程名称：}          & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{\courseName}}}     \\
+            \multicolumn{1}{c}{姓\hspace{1cm}名：} & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{\myName}}}          \\
+            \multicolumn{1}{c}{学\hspace{1cm}院：} & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{\myFacultad}}}      \\
+            \multicolumn{1}{c}{系\hspace{1cm}别：} & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{}}}                 \\
+            \multicolumn{1}{c}{专\hspace{1cm}业：} & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{\myMajor}}}         \\
+            \multicolumn{1}{c}{学\hspace{1cm}号：} & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{\myStudentID}}}     \\
+            \multicolumn{1}{c}{指导教师：}          & \multicolumn{1}{c}{\underline{\makebox[8cm][l]{\courseTeacher}}}  \\
+        \end{tabular}
+    \end{center}
+
+    \vfill
+    \centerline{\Large{\today}}
+    \vfill
+
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    \Large{\textbf{浙江大学实验报告\\}}
+\end{center}
+
+\begin{center}
+    % 没有任何修正的情况下每个汉字约等于0.4cm，每行能够容纳32个汉字
+    \begin{tabular}{>{\raggedright}p{2cm}p{3.66cm}p{2cm}p{3.66cm}}
+        \multicolumn{1}{c}{课程名称：} & \multicolumn{1}{c}{\underline{\makebox[3.66cm][c]{\courseName}}}   &
+        \multicolumn{1}{c}{实验类型：}  & \multicolumn{1}{c}{\underline{\makebox[3.66cm][c]{\labType}}}     \\
+    \end{tabular}
+    \begin{tabular}{>{\raggedright}p{3cm}p{9cm}}
+        \multicolumn{1}{c}{实验项目名称：} & \multicolumn{1}{c}{\underline{\makebox[9cm][c]{\labName}}}     \\
+    \end{tabular}
+    \begin{tabular}{>{\raggedright}p{2cm}p{2cm}p{1.2cm}p{2.4cm}p{1.2cm}p{2cm}}
+        \multicolumn{1}{c}{学生姓名：}  & \multicolumn{1}{c}{\underline{\makebox[2cm][c]{\myName}}}             &
+        \multicolumn{1}{c}{专业：}     & \multicolumn{1}{c}{\underline{\makebox[2.4cm][c]{\small{\myMajor}}}}   &
+        \multicolumn{1}{c}{学号：}     & \multicolumn{1}{c}{\underline{\makebox[2cm][c]{\myStudentID}}}         \\
+    \end{tabular}
+    \begin{tabular}{>{\raggedright}p{3cm}p{4.6cm}p{2cm}p{2cm}}
+        \multicolumn{1}{c}{同组学生姓名：} & \multicolumn{1}{c}{\underline{\makebox[4.6cm][c]{\coworkerName}}}  &
+        \multicolumn{1}{c}{指导老师：}  & \multicolumn{1}{c}{\underline{\makebox[2cm][c]{\courseTeacher}}}      \\
+    \end{tabular}
+    \begin{tabular}{>{\raggedright}p{2cm}p{3.66cm}p{2cm}p{3.66cm}}
+        \multicolumn{1}{c}{实验地点：} & \multicolumn{1}{c}{\underline{\makebox[3.65cm][c]{\labLocation}}}      &
+        \multicolumn{1}{c}{实验日期：}  & \multicolumn{1}{c}{\underline{\makebox[3.65cm][c]{\today}}}           \\
+    \end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\sloppy % 在行尾自动断字，而不考虑语义、单词形状或结构
+
+\input{./sec1.tex}
+
+\input{./sec2.tex}
+
+\input{./sec3.tex}
+
+\input{./sec4.tex}
+
+\input{./sec5.tex}
+
+\input{./sec6.tex}
+
+\input{./sec7.tex}
+
+\end{document}
+
