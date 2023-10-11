@@ -1,3 +1,13 @@
+### 效果
+
+#### 本文档
+
+![tex](./image/github/thismod.png)
+
+#### doc版文档（作为对比）
+
+![doc](./image/github/vanilla.png)
+
 ### 使用方式
 
 #### 修改封面页上的个人信息
