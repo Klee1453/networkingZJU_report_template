@@ -1,5 +1,6 @@
 % !TEX root = ./main.tex
 \documentclass[UTF8]{ctexart}                       % 中文文档
+\usepackage{amsmath, amssymb}                       % 必要的数学环境、字体与符号
 \usepackage{fontspec}                               % 字体处理
 \usepackage{listings}                               % 代码片段插入
 \usepackage{graphicx}                               % 图片处理
@@ -45,9 +46,21 @@
 \newcommand{\labLocation}{计算机网络实验室}
 \newcommand{\labName}{WireShark软件初探和常见网络命令的使用}
 
-% 设置章节标题左对齐
-\CTEXsetup[format={\Large\bfseries}]{section}
+\ctexset{
+    % 设置章节标题左对齐
+    section = {
+        format = \Large\bfseries
+    }
+}
 
+\AtBeginDocument{
+    % 设置equation与align环境与上下文之间的空隙，使之更加紧凑
+    \setlength{\abovedisplayskip}{-10pt}
+    \setlength{\belowdisplayskip}{5pt}
+    % 设置equation*与align*环境与上下文之间的空隙，使之更加紧凑
+    \setlength{\abovedisplayshortskip}{-15pt}
+    \setlength{\belowdisplayshortskip}{0pt}
+}
 \begin{document}
 
 \begin{titlepage}
