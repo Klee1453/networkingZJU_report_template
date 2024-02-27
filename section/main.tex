@@ -1,5 +1,8 @@
 % !TEX root = ./main.tex
 \documentclass[UTF8]{ctexart}                       % 中文文档
+\usepackage{fancyhdr}                               % 页眉页脚
+\fancyhead{}                                        % 清空页眉
+\fancyhead[R]{\thepage}                             % 在页眉右侧显示当前页数
 \usepackage{amsmath, amssymb}                       % 必要的数学环境、字体与符号
 \usepackage{fontspec}                               % 字体处理
 \usepackage{listings}                               % 代码片段插入
@@ -128,6 +131,7 @@
 \vspace{0.5cm}
 
 \sloppy % 在行尾自动断字，而不考虑语义、单词形状或结构
+\raggedbottom % 允许页面底部的空白区域长度不同，从而使页面之间的垂直间距保持一致
 
 \input{./sec1.tex}
 
